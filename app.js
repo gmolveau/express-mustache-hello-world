@@ -1,12 +1,10 @@
 const express = require('express')
+const mustacheExpress = require('mustache-express');
+
 const app = express()
 const port = 3000
 
-var mustacheExpress = require('mustache-express');
-
-
 app.engine('mustache', mustacheExpress()); // template files should have .mustache extension
-
 app.set('view engine', 'mustache');
 app.set('views', __dirname + '/views');
 
@@ -17,5 +15,5 @@ app.get('/', function (req, res) {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+    console.log(`Example app listening at http://localhost:${port}`)
 })
